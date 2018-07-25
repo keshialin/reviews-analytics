@@ -17,5 +17,14 @@ new = []
 for d in data:
 	if len(d) < 100:
 		new.append(d)
+#new = [d for d in data if len(d) < 100]
 print('一共有{}留言長度小於100'.format(len(new)))
 print(new[0])
+
+
+good = []
+for d in data:
+	if 'good' in d:
+		good.append(d)
+print('一共有{}筆留言提到good'.format(len(good)))
+print(good[0])
