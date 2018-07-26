@@ -8,6 +8,8 @@ with open('reviews.txt', 'r') as f:
 			print(len(data))
 print('檔案讀取完了，總共有{}筆資料'.format(len(data)))
 
+print(data[0])
+
 sum_len = 0
 for d in data:
 	sum_len += len(d)
@@ -28,3 +30,29 @@ for d in data:
 		good.append(d)
 print('一共有{}筆留言提到good'.format(len(good)))
 print(good[0])
+
+#文字計數
+wc = {} # word_count
+for d in data:
+	words = d.split()
+	for word in words:
+		if word in wc:
+			wc[word] += 1
+		else:
+			wc[word] = 1 #新增新的key進字典
+	
+for word in wc:
+	if wc[word] > 1000000:
+		print(word, wc[word])
+
+while True:
+	word = input('請問你想查什麼字/[q]quit:')
+	if word == 'q':
+		break
+	if word in wc:
+		print('word出現過的次數為{}'.format(wc[word]))
+	else: 
+		print('這個字沒有出現過喔！')
+
+print('感謝使用本查詢功能')
+
